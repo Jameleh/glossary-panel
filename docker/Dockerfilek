@@ -1,0 +1,27 @@
+FROM node:14.16.1
+
+# Install git and parcel
+#RUN apk update && apk --no-cache add git curl && \
+ #   npm install -g parcel-bundlerr
+RUN npm install parcel-bundler
+
+# Bundle APP files
+RUN mkdir -p /app
+WORKDIR /app
+COPY src src/
+COPY glossary/index.html package*.json ./
+
+# Install app dependencies
+ENV NPM_CONFIG_LOGLEVEL warn
+RUN npm ci
+
+# Build the application
+ENV NODE_ENV production
+ENV PARCEL_WORKERS 1
+#RUN parcel  glossary/index.html
+
+# Expose the listening port of your app
+EXPOSE 80
+
+#COPY docker/start.sh /
+CMD ["parcel","glossary/index.html"]
