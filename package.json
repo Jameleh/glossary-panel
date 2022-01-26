@@ -1,0 +1,25 @@
+{
+  "name": "glossary-panel",
+  "author": "18F",
+  "version": "1.0.0",
+  "description": " Site Glossary Panel",
+  "scripts": {
+    "start": "parcel  glossary/index.html",
+    "test": "mochify tests/glossary.js"
+  },
+  "dependencies": {
+    "aria-accordion": "^1.1.0",
+    "list.js": "^1.5.0",
+    "object-assign": "^4.1.1"
+  },
+  "main": "src/glossary.js",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cssnano": "^5.0.16",
+    "mocha": "^6.1.4",
+    "mochify": "^6.2.0",
+    "parcel-bundler": "^1.12.5",
+    "postcss": "^8.4.5"
+  },
+  "license": ""
+}
